@@ -192,7 +192,6 @@
             {% block content %}{% endblock %}
         </main>
     </div>
-    </div>
     
     <!-- JavaScript -->
     <script>
@@ -202,11 +201,26 @@
             const openSidebar = document.getElementById('openSidebar');
             const closeSidebar = document.getElementById('closeSidebar');
             
-            // Open sidebar
+            // Toggle sidebar function
+            function toggleSidebar() {
+                if (sidebar && sidebarOverlay) {
+                    if (sidebar.classList.contains('-translate-x-full')) {
+                        // Show sidebar
+                        sidebar.classList.remove('-translate-x-full');
+                        sidebarOverlay.classList.remove('hidden');
+                    } else {
+                        // Hide sidebar
+                        sidebar.classList.add('-translate-x-full');
+                        sidebarOverlay.classList.add('hidden');
+                    }
+                }
+            }
+            
+            // Open/toggle sidebar
             if (openSidebar && sidebar && sidebarOverlay) {
-                openSidebar.addEventListener('click', function() {
-                    sidebar.classList.remove('-translate-x-full');
-                    sidebarOverlay.classList.remove('hidden');
+                openSidebar.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleSidebar();
                 });
             }
             
@@ -232,6 +246,33 @@
                     closeSidebarFunction();
                 }
             });
+            
+            // Initialize sidebar state based on screen size
+            function initializeSidebar() {
+                if (window.innerWidth >= 1024) {
+                    // Desktop: show sidebar
+                    if (sidebar) {
+                        sidebar.classList.remove('-translate-x-full');
+                    }
+                    if (sidebarOverlay) {
+                        sidebarOverlay.classList.add('hidden');
+                    }
+                } else {
+                    // Mobile: hide sidebar
+                    if (sidebar) {
+                        sidebar.classList.add('-translate-x-full');
+                    }
+                    if (sidebarOverlay) {
+                        sidebarOverlay.classList.add('hidden');
+                    }
+                }
+            }
+            
+            // Initialize on load
+            initializeSidebar();
+            
+            // Re-initialize on window resize
+            window.addEventListener('resize', initializeSidebar);
         });
     </script>
 </body>
