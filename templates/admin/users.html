@@ -1,0 +1,148 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Users Management - AutoFarmingBot{% endblock %}
+{% block page_title %}Users Management{% endblock %}
+
+{% block content %}
+<!-- Users Table -->
+<div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 overflow-hidden">
+    <div class="px-6 py-4 border-b border-dark-700/50">
+        <div class="flex items-center justify-between">
+            <h2 class="text-xl font-bold text-white">All Users</h2>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search users..." class="pl-10 pr-4 py-2 bg-dark-700 border border-dark-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                <button class="px-4 py-2 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-200">
+                    <i class="fas fa-plus mr-2"></i>
+                    Add User
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead class="bg-dark-700/50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">User</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Email</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Role</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Accounts</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Joined</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700/50">
+                {% for user in users.items %}
+                <tr class="hover:bg-dark-700/30 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold text-sm">{{ user.first_name[0] if user.first_name else user.username[0] }}</span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-white">{{ user.full_name }}</div>
+                                <div class="text-sm text-gray-400">@{{ user.username }}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-300">{{ user.email }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {% if user.role == 'admin' %}bg-red-500/20 text-red-400{% else %}bg-green-500/20 text-green-400{% endif %}">
+                            {% if user.role == 'admin' %}
+                                <i class="fas fa-shield-alt mr-1"></i>
+                            {% else %}
+                                <i class="fas fa-user mr-1"></i>
+                            {% endif %}
+                            {{ user.role.title() }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-300">{{ user.bot_accounts|length }} accounts</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-300">{{ user.created_at.strftime('%b %d, %Y') }}</div>
+                        <div class="text-xs text-gray-500">{{ user.created_at.strftime('%H:%M') }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {% if user.active %}bg-green-500/20 text-green-400{% else %}bg-red-500/20 text-red-400{% endif %}">
+                            <div class="w-1.5 h-1.5 bg-current rounded-full mr-1.5"></div>
+                            {% if user.active %}Active{% else %}Inactive{% endif %}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex items-center space-x-2">
+                            <button class="text-primary-400 hover:text-primary-300 transition-colors">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-yellow-400 hover:text-yellow-300 transition-colors">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            {% if user.role != 'admin' %}
+                            <button class="text-red-400 hover:text-red-300 transition-colors">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                
+                {% if not users.items %}
+                <tr>
+                    <td colspan="7" class="px-6 py-12 text-center">
+                        <i class="fas fa-users text-4xl text-gray-600 mb-4"></i>
+                        <p class="text-gray-400">No users found</p>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Pagination -->
+    {% if users.pages > 1 %}
+    <div class="px-6 py-4 border-t border-dark-700/50">
+        <div class="flex items-center justify-between">
+            <div class="text-sm text-gray-400">
+                Showing {{ ((users.page - 1) * users.per_page + 1) }} to {{ (users.page * users.per_page if users.page * users.per_page < users.total else users.total) }} of {{ users.total }} results
+            </div>
+            <div class="flex items-center space-x-2">
+                {% if users.has_prev %}
+                <a href="{{ url_for('admin_users', page=users.prev_num) }}" class="px-3 py-1 text-sm bg-dark-700 text-gray-300 rounded hover:bg-dark-600 transition-colors">
+                    Previous
+                </a>
+                {% endif %}
+                
+                {% for page_num in users.iter_pages() %}
+                    {% if page_num %}
+                        {% if page_num != users.page %}
+                        <a href="{{ url_for('admin_users', page=page_num) }}" class="px-3 py-1 text-sm bg-dark-700 text-gray-300 rounded hover:bg-dark-600 transition-colors">
+                            {{ page_num }}
+                        </a>
+                        {% else %}
+                        <span class="px-3 py-1 text-sm bg-primary-600 text-white rounded">
+                            {{ page_num }}
+                        </span>
+                        {% endif %}
+                    {% else %}
+                    <span class="px-3 py-1 text-sm text-gray-500">...</span>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if users.has_next %}
+                <a href="{{ url_for('admin_users', page=users.next_num) }}" class="px-3 py-1 text-sm bg-dark-700 text-gray-300 rounded hover:bg-dark-600 transition-colors">
+                    Next
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

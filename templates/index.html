@@ -1,0 +1,691 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Navigation -->
+    <nav class="bg-dark-900/95 backdrop-blur-md shadow-xl fixed w-full z-50 border-b border-dark-700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                            AutoFarmingBot
+                        </span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#features" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">Features</a>
+                            <a href="#products" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">Products</a>
+                            <a href="#pricing" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">Pricing</a>
+                            <a href="#faq" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button id="getStartedBtn" class="px-6 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 transition-all duration-200 transform hover:scale-105 shadow-lg">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-dark-800 focus:outline-none transition-all duration-200">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-900/95 backdrop-blur-md border-t border-dark-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">Features</a>
+                <a href="#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">Products</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">Pricing</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary-400 hover:bg-dark-800 transition-all duration-200">FAQ</a>
+                <button class="get-started-btn block mx-3 my-2 px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 transition-all duration-200 w-full">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-800"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/20 via-transparent to-accent-900/20"></div>
+        
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                        Automate Your 
+                        <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                            Crypto Farming
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Advanced bot solution for 24/7 automated farming across multiple networks with real-time notifications and professional-grade security.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="get-started-btn group px-8 py-4 border-2 border-white/20 text-base font-semibold rounded-xl text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                            <span class="flex items-center justify-center">
+                                Get Started
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </span>
+                        </button>
+                        <a href="#features" class="group px-8 py-4 border-2 border-transparent text-base font-semibold rounded-xl text-white bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                            <span class="flex items-center justify-center">
+                                Learn More
+                                <i class="fas fa-play ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-8 rounded-2xl bg-gradient-to-r from-primary-500/20 to-accent-500/20 blur-2xl"></div>
+                        <div class="relative bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 shadow-2xl">
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span class="text-green-400 font-medium">24/7 Active</span>
+                                </div>
+                                <div class="bg-dark-700/50 rounded-lg p-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-gray-300">Total Farming</span>
+                                        <span class="text-primary-400 font-bold">$12,847</span>
+                                    </div>
+                                    <div class="w-full bg-dark-600 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-primary-500 to-accent-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-dark-700/50 rounded-lg p-3 text-center">
+                                        <div class="text-primary-400 font-bold text-lg">8</div>
+                                        <div class="text-gray-400 text-sm">Networks</div>
+                                    </div>
+                                    <div class="bg-dark-700/50 rounded-lg p-3 text-center">
+                                        <div class="text-accent-400 font-bold text-lg">156</div>
+                                        <div class="text-gray-400 text-sm">Accounts</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-dark-900/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-white sm:text-5xl mb-4">
+                    Powerful 
+                    <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">Features</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    Everything you need to maximize your crypto farming efficiency with professional-grade tools
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group feature-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">24/7 Operation</h3>
+                    <p class="text-gray-400 leading-relaxed">Our bot runs continuously without interruption, ensuring you never miss farming opportunities across all supported networks.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="group feature-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Multi-Account Support</h3>
+                    <p class="text-gray-400 leading-relaxed">Manage single or multiple accounts simultaneously to maximize your farming potential with intelligent load balancing.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="group feature-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Advanced Security</h3>
+                    <p class="text-gray-400 leading-relaxed">Enterprise-grade security with proxy support, encryption, and anti-detection mechanisms for safe operation.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="group feature-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-bell text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Real-Time Notifications</h3>
+                    <p class="text-gray-400 leading-relaxed">Instant alerts on your farming status, rewards, and important events via Telegram with customizable triggers.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="group feature-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Advanced Analytics</h3>
+                    <p class="text-gray-400 leading-relaxed">Comprehensive reports and analytics to track your farming performance with AI-powered optimization suggestions.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="group feature-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cogs text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Smart Automation</h3>
+                    <p class="text-gray-400 leading-relaxed">Intelligent farming strategies with customizable parameters and adaptive algorithms for optimal returns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-dark-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-white sm:text-5xl mb-4">
+                    Supported 
+                    <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">Networks</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    Our bot works seamlessly with these leading crypto networks and platforms
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- NodePay -->
+                <div class="group product-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+                    <div class="flex justify-center mb-6">
+                        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-code-branch text-3xl text-blue-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center text-white mb-4">NodePay</h3>
+                    <p class="text-gray-400 text-center mb-6 leading-relaxed">
+                        Advanced node-based payment network with high-yield farming opportunities and automated rewards collection.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Fully Supported
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Gradient Network -->
+                <div class="group product-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-green-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/20">
+                    <div class="flex justify-center mb-6">
+                        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-project-diagram text-3xl text-green-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center text-white mb-4">Gradient Network</h3>
+                    <p class="text-gray-400 text-center mb-6 leading-relaxed">
+                        Decentralized computing network with AI-powered farming strategies and optimized resource allocation.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-green-500/20 text-green-400 border border-green-500/30">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Fully Supported
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- More Networks -->
+                <div class="group product-card bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <div class="flex justify-center mb-6">
+                        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-plus text-3xl text-purple-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center text-white mb-4">More Networks</h3>
+                    <p class="text-gray-400 text-center mb-6 leading-relaxed">
+                        Expanding support for additional networks and platforms. Request your preferred network integration.
+                    </p>
+                    <div class="text-center">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Coming Soon
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-dark-900/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-white sm:text-5xl mb-4">
+                    Choose Your 
+                    <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">Plan</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    Professional pricing for every scale of operation
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Basic</h3>
+                        <p class="text-gray-400 mb-6">Perfect for beginners</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-white">$29</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                Up to 5 accounts
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                2 supported networks
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                Basic analytics
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                Email support
+                            </li>
+                        </ul>
+                        <button class="get-started-btn w-full px-6 py-3 border border-primary-500/50 text-primary-400 rounded-xl hover:bg-primary-500/10 transition-all duration-200">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="relative bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-accent-500/50 hover:border-accent-400/50 transition-all duration-300 transform hover:scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-accent-500 to-accent-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Most Popular
+                        </span>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                        <p class="text-gray-400 mb-6">For serious farmers</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-white">$79</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-accent-400 mr-3"></i>
+                                Up to 50 accounts
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-accent-400 mr-3"></i>
+                                All supported networks
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-accent-400 mr-3"></i>
+                                Advanced analytics
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-accent-400 mr-3"></i>
+                                Telegram notifications
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-accent-400 mr-3"></i>
+                                Priority support
+                            </li>
+                        </ul>
+                        <button class="get-started-btn w-full px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-xl hover:from-accent-600 hover:to-accent-700 transition-all duration-200">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-300">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                        <p class="text-gray-400 mb-6">For large operations</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-white">$199</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                Unlimited accounts
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                All features included
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                Custom integrations
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                White-label solution
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-check text-primary-400 mr-3"></i>
+                                24/7 phone support
+                            </li>
+                        </ul>
+                        <a href="#pricing" class="w-full inline-block text-center px-6 py-3 border border-primary-500/50 text-primary-400 rounded-xl hover:bg-primary-500/10 transition-all duration-200">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-dark-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-white sm:text-5xl mb-4">
+                    Frequently Asked 
+                    <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">Questions</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    Everything you need to know about our crypto farming solution
+                </p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="faq-item bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 text-left hover:bg-dark-700/30 transition-all duration-200 flex justify-between items-center">
+                        <span class="text-lg font-semibold text-white">How does the AutoFarmingBot work?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-8 pb-6 text-gray-300 leading-relaxed">
+                        Our bot automatically connects to supported crypto networks and performs farming activities 24/7. It manages multiple accounts, optimizes farming strategies, and provides real-time notifications about your earnings and activities.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 text-left hover:bg-dark-700/30 transition-all duration-200 flex justify-between items-center">
+                        <span class="text-lg font-semibold text-white">Is it safe to use?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-8 pb-6 text-gray-300 leading-relaxed hidden">
+                        Yes, our bot uses enterprise-grade security measures including encryption, proxy support, and anti-detection mechanisms. We never store your private keys and use secure API connections to interact with supported networks.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 text-left hover:bg-dark-700/30 transition-all duration-200 flex justify-between items-center">
+                        <span class="text-lg font-semibold text-white">Can I use it with multiple accounts?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-8 pb-6 text-gray-300 leading-relaxed hidden">
+                        Absolutely! Our bot supports multiple accounts across different networks. You can manage 5-50 accounts depending on your plan, with the Enterprise plan offering unlimited account management.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 text-left hover:bg-dark-700/30 transition-all duration-200 flex justify-between items-center">
+                        <span class="text-lg font-semibold text-white">What networks are supported?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-8 pb-6 text-gray-300 leading-relaxed hidden">
+                        Currently, we support NodePay and Gradient Network, with more networks being added regularly. Our team continuously evaluates new farming opportunities and adds support for high-potential networks.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 text-left hover:bg-dark-700/30 transition-all duration-200 flex justify-between items-center">
+                        <span class="text-lg font-semibold text-white">How do I get started?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-8 pb-6 text-gray-300 leading-relaxed hidden">
+                        Simply choose your plan, contact our team, and we'll help you set up your accounts. The process typically takes 15-30 minutes, and you'll be farming within the hour. We provide full onboarding support and documentation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-1">
+                    <div class="mb-6">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                            AutoFarmingBot
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Professional crypto farming automation platform designed for maximum efficiency and security across multiple blockchain networks.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div class="md:col-span-1">
+                    <h3 class="text-white font-semibold mb-4">Product</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#features" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Features</a>
+                        </li>
+                        <li>
+                            <a href="#products" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Supported Networks</a>
+                        </li>
+                        <li>
+                            <a href="#pricing" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="md:col-span-1">
+                    <h3 class="text-white font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Documentation</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">API Reference</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Tutorials</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Community</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Status Page</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="md:col-span-1">
+                    <h3 class="text-white font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Cookie Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">GDPR Compliance</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors duration-200">Security</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-dark-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2024 AutoFarmingBot. All rights reserved. Professional crypto farming automation.
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-shield-alt text-green-400 mr-2"></i>
+                            <span>Enterprise Security</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-clock text-blue-400 mr-2"></i>
+                            <span>99.9% Uptime</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-users text-accent-400 mr-2"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-dark-800 rounded-2xl border border-dark-700 p-8 w-full max-w-md relative">
+                <button id="closeAuthModal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                
+                <!-- Sign In Form -->
+                <div id="signInForm" class="space-y-6">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold text-white mb-2">Welcome Back</h2>
+                        <p class="text-gray-400">Sign in to your AutoFarmingBot account</p>
+                    </div>
+                    
+                    <form action="{{ url_for('login') }}" method="POST" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="Enter your email">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                            <input type="password" name="password" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="Enter your password">
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="remember" class="rounded border-dark-600 text-primary-600 focus:ring-primary-500 focus:ring-offset-0">
+                                <span class="ml-2 text-sm text-gray-300">Remember me</span>
+                            </label>
+                            <a href="#" class="text-sm text-primary-400 hover:text-primary-300 transition-colors">Forgot password?</a>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-200 transform hover:scale-105">
+                            Sign In
+                        </button>
+                    </form>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-400">
+                            Don't have an account? 
+                            <button id="showSignUp" class="text-primary-400 hover:text-primary-300 transition-colors font-semibold">Sign up</button>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Sign Up Form -->
+                <div id="signUpForm" class="space-y-6 hidden">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold text-white mb-2">Create Account</h2>
+                        <p class="text-gray-400">Join thousands of successful crypto farmers</p>
+                    </div>
+                    
+                    <form action="{{ url_for('register') }}" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                                <input type="text" name="first_name" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                                <input type="text" name="last_name" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                            <input type="password" name="password" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="Create a strong password">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Confirm Password</label>
+                            <input type="password" name="confirm_password" required class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200" placeholder="Confirm your password">
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" required class="mt-1 rounded border-dark-600 text-primary-600 focus:ring-primary-500 focus:ring-offset-0">
+                            <label class="ml-2 text-sm text-gray-300">
+                                I agree to the <a href="#" class="text-primary-400 hover:text-primary-300 transition-colors">Terms of Service</a> and <a href="#" class="text-primary-400 hover:text-primary-300 transition-colors">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-200 transform hover:scale-105">
+                            Create Account
+                        </button>
+                    </form>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-400">
+                            Already have an account? 
+                            <button id="showSignIn" class="text-primary-400 hover:text-primary-300 transition-colors font-semibold">Sign in</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
