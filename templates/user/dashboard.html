@@ -12,174 +12,174 @@
 
 <!-- Stats Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <!-- Total Earned -->
-            <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-400">Total Earned</p>
-                        <p class="text-3xl font-bold text-white">${{ "%.2f"|format(total_earned) }}</p>
-                        <p class="text-sm text-green-400 mt-1">
-                            <i class="fas fa-arrow-up mr-1"></i>
-                            All time earnings
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl">
-                        <i class="fas fa-dollar-sign text-2xl text-yellow-400"></i>
-                    </div>
-                </div>
+    <!-- Total Earned -->
+    <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm font-medium text-gray-400">Total Earned</p>
+                <p class="text-3xl font-bold text-white">${{ "%.2f"|format(total_earned) }}</p>
+                <p class="text-sm text-green-400 mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    All time earnings
+                </p>
             </div>
-            
-            <!-- Active Accounts -->
-            <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-400">Active Accounts</p>
-                        <p class="text-3xl font-bold text-white">{{ active_count }}</p>
-                        <p class="text-sm text-green-400 mt-1">
-                            <i class="fas fa-circle text-xs mr-1"></i>
-                            Currently running
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl">
-                        <i class="fas fa-play text-2xl text-green-400"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Total Accounts -->
-            <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-gray-400">Total Accounts</p>
-                        <p class="text-3xl font-bold text-white">{{ accounts|length }}</p>
-                        <p class="text-sm text-primary-400 mt-1">
-                            <i class="fas fa-robot mr-1"></i>
-                            Bot accounts
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-xl">
-                        <i class="fas fa-robot text-2xl text-primary-400"></i>
-                    </div>
-                </div>
+            <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl">
+                <i class="fas fa-dollar-sign text-2xl text-yellow-400"></i>
             </div>
         </div>
+    </div>
+    
+    <!-- Active Accounts -->
+    <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm font-medium text-gray-400">Active Accounts</p>
+                <p class="text-3xl font-bold text-white">{{ active_count }}</p>
+                <p class="text-sm text-green-400 mt-1">
+                    <i class="fas fa-circle text-xs mr-1"></i>
+                    Currently running
+                </p>
+            </div>
+            <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl">
+                <i class="fas fa-play text-2xl text-green-400"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Total Accounts -->
+    <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm font-medium text-gray-400">Total Accounts</p>
+                <p class="text-3xl font-bold text-white">{{ accounts|length }}</p>
+                <p class="text-sm text-primary-400 mt-1">
+                    <i class="fas fa-robot mr-1"></i>
+                    Bot accounts
+                </p>
+            </div>
+            <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-xl">
+                <i class="fas fa-robot text-2xl text-primary-400"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <!-- Quick Actions -->
-        <div class="mb-8">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold text-white">Quick Actions</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
-                    <i class="fas fa-plus text-primary-400 text-xl mb-2"></i>
-                    <h3 class="text-white font-medium">Add Account</h3>
-                    <p class="text-gray-400 text-sm">Connect new farming account</p>
-                </button>
-                
-                <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
-                    <i class="fas fa-play text-green-400 text-xl mb-2"></i>
-                    <h3 class="text-white font-medium">Start All</h3>
-                    <p class="text-gray-400 text-sm">Activate all accounts</p>
-                </button>
-                
-                <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
-                    <i class="fas fa-pause text-yellow-400 text-xl mb-2"></i>
-                    <h3 class="text-white font-medium">Pause All</h3>
-                    <p class="text-gray-400 text-sm">Stop all farming</p>
-                </button>
-                
-                <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
-                    <i class="fas fa-chart-line text-accent-400 text-xl mb-2"></i>
-                    <h3 class="text-white font-medium">View Reports</h3>
-                    <p class="text-gray-400 text-sm">Detailed analytics</p>
-                </button>
-            </div>
-        </div>
+<!-- Quick Actions -->
+<div class="mb-8">
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-bold text-white">Quick Actions</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
+            <i class="fas fa-plus text-primary-400 text-xl mb-2"></i>
+            <h3 class="text-white font-medium">Add Account</h3>
+            <p class="text-gray-400 text-sm">Connect new farming account</p>
+        </button>
+        
+        <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
+            <i class="fas fa-play text-green-400 text-xl mb-2"></i>
+            <h3 class="text-white font-medium">Start All</h3>
+            <p class="text-gray-400 text-sm">Activate all accounts</p>
+        </button>
+        
+        <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
+            <i class="fas fa-pause text-yellow-400 text-xl mb-2"></i>
+            <h3 class="text-white font-medium">Pause All</h3>
+            <p class="text-gray-400 text-sm">Stop all farming</p>
+        </button>
+        
+        <button class="p-4 bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 hover:border-primary-500/50 transition-all duration-200 text-left">
+            <i class="fas fa-chart-line text-accent-400 text-xl mb-2"></i>
+            <h3 class="text-white font-medium">View Reports</h3>
+            <p class="text-gray-400 text-sm">Detailed analytics</p>
+        </button>
+    </div>
+</div>
 
-        <!-- Bot Accounts -->
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <!-- My Accounts -->
-            <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-bold text-white">My Bot Accounts</h2>
-                    <button class="text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
-                        Manage All <i class="fas fa-arrow-right ml-1"></i>
-                    </button>
-                </div>
-                
-                <div class="space-y-4">
-                    {% for account in accounts[:4] %}
-                    <div class="flex items-center justify-between p-4 bg-dark-700/30 rounded-xl border border-dark-600/50">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-robot text-white text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-white font-medium">{{ account.account_name }}</p>
-                                <p class="text-gray-400 text-sm">{{ account.network }}</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-white font-medium">${{ "%.2f"|format(account.total_earned) }}</p>
-                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium {% if account.status == 'active' %}bg-green-500/20 text-green-400{% else %}bg-gray-500/20 text-gray-400{% endif %}">
-                                <div class="w-1.5 h-1.5 bg-current rounded-full mr-1.5 {% if account.status == 'active' %}animate-pulse{% endif %}"></div>
-                                {{ account.status.title() }}
-                            </span>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    
-                    {% if not accounts %}
-                    <div class="text-center py-8">
-                        <i class="fas fa-robot text-4xl text-gray-600 mb-4"></i>
-                        <p class="text-gray-400 mb-4">No bot accounts yet</p>
-                        <button class="px-4 py-2 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-200">
-                            Add Your First Account
-                        </button>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-            
-            <!-- Recent Activity -->
-            <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-bold text-white">Recent Activity</h2>
-                    <button class="text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
-                        View All <i class="fas fa-arrow-right ml-1"></i>
-                    </button>
-                </div>
-                
-                <div class="space-y-4">
-                    {% for session in recent_sessions %}
-                    <div class="flex items-center justify-between p-4 bg-dark-700/30 rounded-xl border border-dark-600/50">
-                        <div class="flex items-center">
-                            <div class="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-chart-line text-white text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-white font-medium">{{ session.bot_account.account_name }}</p>
-                                <p class="text-gray-400 text-sm">{{ session.session_start.strftime('%b %d, %H:%M') }}</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-green-400 font-medium">+${{ "%.2f"|format(session.earnings) }}</p>
-                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium {% if session.status == 'running' %}bg-green-500/20 text-green-400{% elif session.status == 'completed' %}bg-blue-500/20 text-blue-400{% else %}bg-red-500/20 text-red-400{% endif %}">
-                                {{ session.status.title() }}
-                            </span>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    
-                    {% if not recent_sessions %}
-                    <div class="text-center py-8">
-                        <i class="fas fa-chart-line text-4xl text-gray-600 mb-4"></i>
-                        <p class="text-gray-400">No recent activity</p>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
+<!-- Bot Accounts -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+    <!-- My Accounts -->
+    <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-white">My Bot Accounts</h2>
+            <button class="text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                Manage All <i class="fas fa-arrow-right ml-1"></i>
+            </button>
         </div>
+        
+        <div class="space-y-4">
+            {% for account in accounts[:4] %}
+            <div class="flex items-center justify-between p-4 bg-dark-700/30 rounded-xl border border-dark-600/50">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-robot text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-white font-medium">{{ account.account_name }}</p>
+                        <p class="text-gray-400 text-sm">{{ account.network }}</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-white font-medium">${{ "%.2f"|format(account.total_earned) }}</p>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium {% if account.status == 'active' %}bg-green-500/20 text-green-400{% else %}bg-gray-500/20 text-gray-400{% endif %}">
+                        <div class="w-1.5 h-1.5 bg-current rounded-full mr-1.5 {% if account.status == 'active' %}animate-pulse{% endif %}"></div>
+                        {{ account.status.title() }}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+            
+            {% if not accounts %}
+            <div class="text-center py-8">
+                <i class="fas fa-robot text-4xl text-gray-600 mb-4"></i>
+                <p class="text-gray-400 mb-4">No bot accounts yet</p>
+                <button class="px-4 py-2 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-200">
+                    Add Your First Account
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Recent Activity -->
+    <div class="bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-dark-700/50 p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-white">Recent Activity</h2>
+            <button class="text-primary-400 hover:text-primary-300 text-sm font-medium transition-colors">
+                View All <i class="fas fa-arrow-right ml-1"></i>
+            </button>
+        </div>
+        
+        <div class="space-y-4">
+            {% for session in recent_sessions %}
+            <div class="flex items-center justify-between p-4 bg-dark-700/30 rounded-xl border border-dark-600/50">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-chart-line text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-white font-medium">{{ session.bot_account.account_name }}</p>
+                        <p class="text-gray-400 text-sm">{{ session.session_start.strftime('%b %d, %H:%M') }}</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-green-400 font-medium">+${{ "%.2f"|format(session.earnings) }}</p>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium {% if session.status == 'running' %}bg-green-500/20 text-green-400{% elif session.status == 'completed' %}bg-blue-500/20 text-blue-400{% else %}bg-red-500/20 text-red-400{% endif %}">
+                        {{ session.status.title() }}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+            
+            {% if not recent_sessions %}
+            <div class="text-center py-8">
+                <i class="fas fa-chart-line text-4xl text-gray-600 mb-4"></i>
+                <p class="text-gray-400">No recent activity</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
