@@ -57,12 +57,75 @@
             }
         }
     </script>
+    
+    <style>
+        .sidebar-expanded {
+            width: 16rem; /* 64 in Tailwind */
+        }
+        
+        .sidebar-collapsed {
+            width: 4rem; /* 16 in Tailwind */
+        }
+        
+        .sidebar-collapsed .sidebar-text {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .sidebar-collapsed .sidebar-logo-text {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .sidebar-collapsed .sidebar-section-header {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .sidebar-collapsed .sidebar-user-info {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .sidebar-text {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .sidebar-logo-text {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .sidebar-section-header {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .sidebar-user-info {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .sidebar-content-expanded {
+            margin-left: 16rem; /* 64 in Tailwind */
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        .sidebar-content-collapsed {
+            margin-left: 4rem; /* 16 in Tailwind */
+            transition: margin-left 0.3s ease-in-out;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar-content-expanded,
+            .sidebar-content-collapsed {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 <body class="font-sans bg-dark-950 text-gray-100 antialiased">
     <!-- Sidebar -->
-    <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-dark-900 border-r border-dark-800 transform transition-transform duration-300 ease-in-out">
+    <div id="sidebar" class="fixed inset-y-0 left-0 z-50 bg-dark-900 border-r border-dark-800 transform transition-all duration-300 ease-in-out sidebar-expanded">
             <div class="flex items-center justify-between h-16 px-6 border-b border-dark-800">
-                <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent sidebar-logo-text">
                     AutoFarmingBot
                 </span>
                 <button id="closeSidebar" class="lg:hidden text-gray-400 hover:text-white">
@@ -72,49 +135,49 @@
             
             <nav class="mt-8">
                 <div class="px-6 mb-6">
-                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">User Panel</h3>
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider sidebar-section-header">User Panel</h3>
                 </div>
                 
                 <div class="space-y-1 px-3">
                     <a href="{{ url_for('user_dashboard') }}" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg {% if request.endpoint == 'user_dashboard' %}bg-primary-600/20 text-primary-400 border-r-2 border-primary-400{% else %}text-gray-300 hover:bg-dark-800 hover:text-primary-400{% endif %} transition-all duration-200">
-                        <i class="fas fa-home mr-3 text-lg"></i>
-                        Dashboard
+                        <i class="fas fa-home mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">Dashboard</span>
                     </a>
                     
                     <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-300 hover:bg-dark-800 hover:text-primary-400 transition-all duration-200">
-                        <i class="fas fa-robot mr-3 text-lg"></i>
-                        My Accounts
+                        <i class="fas fa-robot mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">My Accounts</span>
                     </a>
                     
                     <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-300 hover:bg-dark-800 hover:text-primary-400 transition-all duration-200">
-                        <i class="fas fa-chart-line mr-3 text-lg"></i>
-                        Analytics
+                        <i class="fas fa-chart-line mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">Analytics</span>
                     </a>
                     
                     <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-300 hover:bg-dark-800 hover:text-primary-400 transition-all duration-200">
-                        <i class="fas fa-dollar-sign mr-3 text-lg"></i>
-                        Earnings
+                        <i class="fas fa-dollar-sign mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">Earnings</span>
                     </a>
                     
                     <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-300 hover:bg-dark-800 hover:text-primary-400 transition-all duration-200">
-                        <i class="fas fa-cog mr-3 text-lg"></i>
-                        Settings
+                        <i class="fas fa-cog mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">Settings</span>
                     </a>
                 </div>
                 
                 <div class="px-6 mt-8 mb-6">
-                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Quick Actions</h3>
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider sidebar-section-header">Quick Actions</h3>
                 </div>
                 
                 <div class="space-y-1 px-3">
                     <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-300 hover:bg-dark-800 hover:text-primary-400 transition-all duration-200">
-                        <i class="fas fa-plus mr-3 text-lg"></i>
-                        Add Account
+                        <i class="fas fa-plus mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">Add Account</span>
                     </a>
                     
                     <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-300 hover:bg-dark-800 hover:text-primary-400 transition-all duration-200">
-                        <i class="fas fa-play mr-3 text-lg"></i>
-                        Start All
+                        <i class="fas fa-play mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text">Start All</span>
                     </a>
                 </div>
             </nav>
@@ -127,7 +190,7 @@
                             <span class="text-sm font-medium">{{ current_user.first_name[0] if current_user.first_name else current_user.username[0] }}</span>
                         </div>
                     </div>
-                    <div class="ml-3 flex-1 min-w-0">
+                    <div class="ml-3 flex-1 min-w-0 sidebar-user-info">
                         <p class="text-sm font-medium text-white truncate">
                             {{ current_user.full_name }}
                         </p>
@@ -146,7 +209,7 @@
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden hidden"></div>
     
     <!-- Main Content -->
-    <div class="lg:pl-64">
+    <div id="mainContent" class="sidebar-content-expanded">
         <!-- Top Navigation -->
         <div class="sticky top-0 z-40 bg-dark-950/95 backdrop-blur-md border-b border-dark-800">
             <div class="flex items-center justify-between h-16 px-6">
@@ -249,49 +312,45 @@
                 }
             });
             
-            // Initialize sidebar state
+            // Initialize sidebar - start expanded by default
             function initializeSidebar() {
-                console.log('Initializing sidebar state...');
+                console.log('Initializing sidebar as expanded...');
+                const mainContent = document.getElementById('mainContent');
+                
                 if (sidebar) {
-                    if (window.innerWidth >= 1024) {
-                        // Desktop: show sidebar by default
-                        sidebar.classList.remove('-translate-x-full');
-                        sidebar.classList.add('translate-x-0');
-                        console.log('Desktop: sidebar shown');
-                    } else {
-                        // Mobile: hide sidebar by default
-                        sidebar.classList.add('-translate-x-full');
-                        sidebar.classList.remove('translate-x-0');
-                        console.log('Mobile: sidebar hidden');
-                    }
+                    sidebar.classList.add('sidebar-expanded');
+                    sidebar.classList.remove('sidebar-collapsed');
                 }
-                if (sidebarOverlay) {
-                    sidebarOverlay.classList.add('hidden');
+                
+                if (mainContent) {
+                    mainContent.classList.add('sidebar-content-expanded');
+                    mainContent.classList.remove('sidebar-content-collapsed');
                 }
             }
             
-            // Updated toggle function
+            // Toggle sidebar between expanded and collapsed
             function toggleSidebar() {
                 console.log('Toggling sidebar...');
-                if (sidebar && sidebarOverlay) {
-                    const isHidden = sidebar.classList.contains('-translate-x-full') || 
-                                   !sidebar.classList.contains('translate-x-0');
-                    console.log('Sidebar currently hidden:', isHidden);
+                const mainContent = document.getElementById('mainContent');
+                
+                if (sidebar && mainContent) {
+                    const isExpanded = sidebar.classList.contains('sidebar-expanded');
+                    console.log('Sidebar currently expanded:', isExpanded);
                     
-                    if (isHidden) {
-                        // Show sidebar
-                        console.log('Showing sidebar');
-                        sidebar.classList.remove('-translate-x-full');
-                        sidebar.classList.add('translate-x-0');
-                        if (window.innerWidth < 1024) {
-                            sidebarOverlay.classList.remove('hidden');
-                        }
+                    if (isExpanded) {
+                        // Collapse sidebar
+                        console.log('Collapsing sidebar');
+                        sidebar.classList.remove('sidebar-expanded');
+                        sidebar.classList.add('sidebar-collapsed');
+                        mainContent.classList.remove('sidebar-content-expanded');
+                        mainContent.classList.add('sidebar-content-collapsed');
                     } else {
-                        // Hide sidebar
-                        console.log('Hiding sidebar');
-                        sidebar.classList.add('-translate-x-full');
-                        sidebar.classList.remove('translate-x-0');
-                        sidebarOverlay.classList.add('hidden');
+                        // Expand sidebar
+                        console.log('Expanding sidebar');
+                        sidebar.classList.remove('sidebar-collapsed');
+                        sidebar.classList.add('sidebar-expanded');
+                        mainContent.classList.remove('sidebar-content-collapsed');
+                        mainContent.classList.add('sidebar-content-expanded');
                     }
                 }
             }
