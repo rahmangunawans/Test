@@ -60,7 +60,7 @@
 </head>
 <body class="font-sans bg-dark-950 text-gray-100 antialiased">
     <!-- Sidebar -->
-    <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-dark-900 border-r border-dark-800 transform -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0">
+    <div id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-dark-900 border-r border-dark-800 transform transition-transform duration-300 ease-in-out">
             <div class="flex items-center justify-between h-16 px-6 border-b border-dark-800">
                 <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                     AutoFarmingBot
@@ -209,20 +209,7 @@
                 closeSidebar: !!closeSidebar
             });
             
-            // Toggle sidebar function
-            function toggleSidebar() {
-                if (sidebar && sidebarOverlay) {
-                    if (sidebar.classList.contains('-translate-x-full')) {
-                        // Show sidebar
-                        sidebar.classList.remove('-translate-x-full');
-                        sidebarOverlay.classList.remove('hidden');
-                    } else {
-                        // Hide sidebar
-                        sidebar.classList.add('-translate-x-full');
-                        sidebarOverlay.classList.add('hidden');
-                    }
-                }
-            }
+
             
             // Open/toggle sidebar
             if (openSidebar && sidebar && sidebarOverlay) {
@@ -262,22 +249,48 @@
                 }
             });
             
-            // Initialize sidebar state based on screen size
+            // Initialize sidebar state
             function initializeSidebar() {
-                if (window.innerWidth >= 1024) {
-                    // Desktop: show sidebar
-                    if (sidebar) {
+                console.log('Initializing sidebar state...');
+                if (sidebar) {
+                    if (window.innerWidth >= 1024) {
+                        // Desktop: show sidebar by default
                         sidebar.classList.remove('-translate-x-full');
-                    }
-                    if (sidebarOverlay) {
-                        sidebarOverlay.classList.add('hidden');
-                    }
-                } else {
-                    // Mobile: hide sidebar
-                    if (sidebar) {
+                        sidebar.classList.add('translate-x-0');
+                        console.log('Desktop: sidebar shown');
+                    } else {
+                        // Mobile: hide sidebar by default
                         sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                        console.log('Mobile: sidebar hidden');
                     }
-                    if (sidebarOverlay) {
+                }
+                if (sidebarOverlay) {
+                    sidebarOverlay.classList.add('hidden');
+                }
+            }
+            
+            // Updated toggle function
+            function toggleSidebar() {
+                console.log('Toggling sidebar...');
+                if (sidebar && sidebarOverlay) {
+                    const isHidden = sidebar.classList.contains('-translate-x-full') || 
+                                   !sidebar.classList.contains('translate-x-0');
+                    console.log('Sidebar currently hidden:', isHidden);
+                    
+                    if (isHidden) {
+                        // Show sidebar
+                        console.log('Showing sidebar');
+                        sidebar.classList.remove('-translate-x-full');
+                        sidebar.classList.add('translate-x-0');
+                        if (window.innerWidth < 1024) {
+                            sidebarOverlay.classList.remove('hidden');
+                        }
+                    } else {
+                        // Hide sidebar
+                        console.log('Hiding sidebar');
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
                         sidebarOverlay.classList.add('hidden');
                     }
                 }
@@ -287,7 +300,10 @@
             initializeSidebar();
             
             // Re-initialize on window resize
-            window.addEventListener('resize', initializeSidebar);
+            window.addEventListener('resize', function() {
+                console.log('Window resized, reinitializing sidebar...');
+                initializeSidebar();
+            });
         });
     </script>
 </body>
